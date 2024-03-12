@@ -3,17 +3,8 @@ import { useState } from "react";
 
 
 function App() {
-  const test = [{
-    id: 0,
-    name: '',
-    age: 0,
-    height: 0,
-    energy: 0,
-    stamina: 0,
-    health: 0,
-  }]
 
-  const [characters, setCharacters] = useState(test);
+  const [characters, setCharacters] = useState([]);
 
   function addNewCharacter(newCharac){
     setCharacters((characters) => [...characters, newCharac]);
@@ -49,7 +40,8 @@ function AddCharacter({addNewCharacter}){
 
 
   function handleSubmit(e){
-    e.prevenDefault();
+    e.preventDefault();
+    
     // if (!name || !age || !height || !energy || !stamina || !health) return;
 
     const id = crypto.randomUUID();
